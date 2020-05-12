@@ -51,8 +51,8 @@ def self.get_movie
     if m
       m
     else
-      movie=Movies.new(m,yr,cast_,direct,produce,write)
-      
+      movie=Movies.new(m_name,yr,cast_,direct,produce,write)
+
   end
 end
 

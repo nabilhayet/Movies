@@ -3,58 +3,68 @@ class Cli
     Scrapper.get_movie
 
 
-   input = ""
+    input = ""
 
-  while input!='exit'
-    puts "----------------------------------------------------------------------------"
-    puts "1. Welcome to our movie wolrd"
-    puts "----------------------------------------------------------------------------"
+    while input!='exit'
+      puts "----------------------------------------------------------------------------"
+      puts "1. Welcome to our movie wolrd"
+      puts "----------------------------------------------------------------------------"
 
-    puts "2. To find the list of all the movies, enter 'list movies'"
-    puts "----------------------------------------------------------------------------"
+      puts "2. To find the list of all the movies, enter 'list movies'"
+      puts "----------------------------------------------------------------------------"
 
-    puts "3. To list all of the director in your movie world, enter 'list director'."
-    puts "----------------------------------------------------------------------------"
+      puts "3. To list all of the director in your movie world, enter 'list director'."
+      puts "----------------------------------------------------------------------------"
 
-    puts "4. To list all of the genres in your library, enter 'list genres'."
-    puts "----------------------------------------------------------------------------"
+      puts "4. To list all of the producer in your library, enter 'list producer'."
+      puts "----------------------------------------------------------------------------"
 
-    puts "5. To quit, type 'exit'"
-    puts "----------------------------------------------------------------------------"
+      puts "5. To list all of the writer in your library, enter 'list writer'."
+      puts "----------------------------------------------------------------------------"
 
-    input = gets.strip.downcase
+      puts "6. To quit, type 'exit'"
+      puts "----------------------------------------------------------------------------"
 
-   case input
-          when "list movies"
-            list_movies
-         when "list director"
-          list_director
-         when "list genres"
-            list_genres
-          end
-       input = gets.strip.downcase
-    end
-end
+      input = gets.strip.downcase
 
-  # def list_movies
-  #    m_name = Movies.all.select{|movie| movie.movie_name}
-  #    binding.pry
-  #    puts "#{m_name}"
-  #  end
+      case input
+            when "list movies"
+              list_movies
+            when "list director"
+            list_director
+            when "list producer"
+              list_producer
+            when "list writer"
+              list_writer
 
+            end
+      end
  end
 
- def list_director
-    Director.all.uniq.each do |direct|
-    puts direct.name
+
+    def list_movies
+      Movies.all.each_with_index do |item,index|
+        puts " #{index+1} #{item.movie_name}"
+      end
     end
 
-end
-  #
-  # def list_producer
-  #   Producer.all.select{|produce| produce.name}
-  # end
 
-  # def list_writer
-  #   Writer.all.select{|writer| writer.name}
-  # end
+    def list_director
+      Director.all.each_with_index do |item,index|
+        puts " #{index+1} #{item.name}"
+      end
+    end
+
+    def list_producer
+      Producer.all.each_with_index do |item,index|
+        puts " #{index+1} #{item.name}"
+      end
+    end
+
+   def list_writer
+      Writer.all.each_with_index do |item,index|
+       puts " #{index+1} #{item.name}"
+     end
+  end
+
+end
