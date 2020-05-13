@@ -40,19 +40,39 @@ def self.get_movie
 
 
   director.each_with_index do |item,index|
-    direct= Director.new(item)
-    produce = Producer.new(producer[index])
-    write = Writer.new(writer[index])
+
+    direct = Director.find_by_name(item)
+      if direct
+          direct
+      else
+          direct = Director.new(item)
+      end
+
+    produce = Producer.find_by_name(producer[index])
+      if produce
+          produce
+      else
+          produce = Producer.new(producer[index])
+      end
+
+    write = Writer.find_by_name(writer[index])
+      if write
+          write
+      else
+        write= Writer.new(writer[index])
+      end
+
     yr = year[index]
     cast_ = cast[index]
     m_name = name[index]
     m = Movies.find_by_name(m_name)
-
     if m
       m
     else
       movie=Movies.new(m_name,yr,cast_,direct,produce,write)
-
+      direct.add_movie(movie)
+      produce.add_movie(movie)
+      write.add_movie(movie)
   end
 end
 
