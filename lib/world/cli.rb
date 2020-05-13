@@ -22,7 +22,10 @@ class Cli
       puts "5. To list all of the writer in your library, enter 'list writer'."
       puts "----------------------------------------------------------------------------"
 
-      puts "6. To quit, type 'exit'"
+      puts "6. To list all of the movies of a director, enter 'list movies by director'."
+      puts "----------------------------------------------------------------------------"
+
+      puts "7. To quit, type 'exit'"
       puts "----------------------------------------------------------------------------"
 
       input = gets.strip.downcase
@@ -36,6 +39,8 @@ class Cli
               list_producer
             when "list writer"
               list_writer
+            when "list movies by director"
+              list_movies_by_director
 
             end
       end
@@ -43,8 +48,9 @@ class Cli
 
 
     def list_movies
+      puts   "  |Movie_Name|  |---------------|Cast|--------------------------|     ||Year||    ||Director||  ||Producer||   ||Writer|| "
       Movies.all.each_with_index do |item,index|
-        puts " #{index+1} #{item.movie_name}"
+        puts " #{index+1} |#{item.movie_name}|  |#{item.cast}|  |#{item.year}|  |#{item.director.name}|  |#{item.producer.name}| |#{item.writer.name}|"
       end
     end
 
@@ -65,5 +71,18 @@ class Cli
       Writer.all.each_with_index do |item,index|
        puts " #{index+1} #{item.name}"
       end
-  end 
+  end
+
+  def list_movies_by_director
+  puts 'Please enter the name of an director:'
+  input =gets.strip
+
+  if direct = Director.find_by_name(input)
+    direct.movies.sort{|a,b| a.name<=>b.name}.each.with_index(1) do |movie,idx|
+      puts "#{idx}. #{movie.movie_name} - #{movie.cast}"
+      puts "Thank You"
+    end
+  end
+end
+
 end
