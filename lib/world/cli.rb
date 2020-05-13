@@ -74,15 +74,17 @@ class Cli
   end
 
   def list_movies_by_director
-  puts 'Please enter the name of an director:'
-  input =gets.strip
+    puts 'Please enter the name of an director:'
+    input =gets.strip
 
-  if direct = Director.find_by_name(input)
-    direct.movies.sort{|a,b| a.name<=>b.name}.each.with_index(1) do |movie,idx|
-      puts "#{idx}. #{movie.movie_name} - #{movie.cast}"
-      puts "Thank You"
+      if direct = Director.find_by_name(input)
+        direct.movies.sort{|a,b| a.name<=>b.name}.each.with_index(1) do |movie,idx|
+          puts "#{idx}. #{movie.movie_name} - #{movie.cast}"
+          puts "Thank You"
+        end
+      else
+        puts "No such name exists"
+      end
     end
-  end
-end
 
 end
