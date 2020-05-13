@@ -144,8 +144,8 @@ class Cli
     input =gets.strip
 
     movie_ = Movies.all.select{|movie|movie.year==input}
-      if movie_
-          puts "#{movie_.movie_name}"
+      if !movie_.empty?
+        movie_.each{|movie| puts "Movie Name is: #{movie.movie_name}"}
       else
         puts "No such movie exists"
       end
@@ -156,8 +156,8 @@ class Cli
     input =gets.strip
 
     casting = Movies.all.select{|movie| movie.cast.include?(input)}
-    if casting
-      puts "#{casting.movie_name}"
+    if !casting.empty?
+      casting.each{|cast| puts "Movie Name is : #{cast.movie_name}"}
     else
       puts "No such movie exist"
     end
