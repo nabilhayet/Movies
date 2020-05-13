@@ -25,7 +25,16 @@ class Cli
       puts "6. To list all of the movies of a director, enter 'list movies by director'."
       puts "----------------------------------------------------------------------------"
 
-      puts "7. To quit, type 'exit'"
+      puts "7. To list all of the movies of a producer, enter 'list movies by producer'."
+      puts "----------------------------------------------------------------------------"
+
+      puts "8. To list all of the movies of a writer, enter 'list movies by writer'."
+      puts "----------------------------------------------------------------------------"
+
+      puts "9. To list details of the movie, enter 'list movie details'."
+      puts "----------------------------------------------------------------------------"
+
+      puts "10. To quit, type 'exit'"
       puts "----------------------------------------------------------------------------"
 
       input = gets.strip.downcase
@@ -41,16 +50,21 @@ class Cli
               list_writer
             when "list movies by director"
               list_movies_by_director
-
+            when "list movie details"
+              movie_details
+            when "list movies by producer"
+              list_movies_by_Producer
+            when "list movies by writer"
+              list_movies_by_Writer
             end
       end
  end
 
 
     def list_movies
-      puts   "  |Movie_Name|  |---------------|Cast|--------------------------|     ||Year||    ||Director||  ||Producer||   ||Writer|| "
+      puts   " |Movie_Name| "
       Movies.all.each_with_index do |item,index|
-        puts " #{index+1} |#{item.movie_name}|  |#{item.cast}|  |#{item.year}|  |#{item.director.name}|  |#{item.producer.name}| |#{item.writer.name}|"
+        puts "#{index+1} |#{item.movie_name}|"
       end
     end
 
@@ -78,13 +92,60 @@ class Cli
     input =gets.strip
 
       if direct = Director.find_by_name(input)
-        direct.movies.sort{|a,b| a.name<=>b.name}.each.with_index(1) do |movie,idx|
+          direct.movies.sort{|a,b| a.name<=>b.name}.each.with_index(1) do |movie,idx|
           puts "#{idx}. #{movie.movie_name} - #{movie.cast}"
           puts "Thank You"
-        end
+          end
       else
         puts "No such name exists"
       end
+  end
+
+  def list_movies_by_Producer
+    puts 'Please enter the name of an producer:'
+    input =gets.strip
+
+      if produce = Producer.find_by_name(input)
+          produce.movies.sort{|a,b| a.name<=>b.name}.each.with_index(1) do |movie,idx|
+          puts "#{idx}. #{movie.movie_name} - #{movie.cast}"
+          puts "Thank You"
+          end
+      else
+        puts "No such name exists"
+      end
+  end
+
+  def list_movies_by_Writer
+    puts 'Please enter the name of an writer:'
+    input =gets.strip
+
+      if write = Writer.find_by_name(input)
+          write.movies.sort{|a,b| a.name<=>b.name}.each.with_index(1) do |movie,idx|
+          puts "#{idx}. #{movie.movie_name} - #{movie.cast}"
+          puts "Thank You"
+          end
+      else
+        puts "No such name exists"
+      end
+  end
+
+
+
+
+
+    def movie_details
+    puts 'Which movie details would you like to see?'
+    input = gets.strip.to_i
+      if(1..Movies.all.length).include?(input)
+      movie = Movies.all.sort{|a,b| a.movie_name<=>b.movie_name}[input -1]
+        if movie
+          puts "||Movie_Name||  |--------|Cast|---------|                 |Release_year||  ||Director||           ||Producer||           ||Writer||"
+          puts "Showing #{movie.movie_name}  #{movie.cast}  #{movie.year} #{movie.director.name}  #{movie.producer.name} #{movie.writer.name}"
+        else
+          puts "This movie list doesn't exist. Try another one!"
+        end
+      end
     end
+
 
 end
