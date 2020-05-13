@@ -34,7 +34,13 @@ class Cli
       puts "9. To list details of the movie, enter 'list movie details'."
       puts "----------------------------------------------------------------------------"
 
-      puts "10. To quit, type 'exit'"
+      puts "10. To find a movie by a given year, enter 'movie year'."
+      puts "----------------------------------------------------------------------------"
+
+      puts "11. To find a movie by a given cast member, enter 'cast member'."
+      puts "----------------------------------------------------------------------------"
+
+      puts "12. To quit, type 'exit'"
       puts "----------------------------------------------------------------------------"
 
       input = gets.strip.downcase
@@ -56,6 +62,10 @@ class Cli
               list_movies_by_Producer
             when "list movies by writer"
               list_movies_by_Writer
+            when "movie year"
+              list_by_year
+            when "cast member"
+              cast_member
             end
       end
  end
@@ -127,6 +137,30 @@ class Cli
       else
         puts "No such name exists"
       end
+  end
+
+  def list_by_year
+    puts 'Please enter the year:'
+    input =gets.strip
+
+    movie_ = Movies.all.select{|movie|movie.year==input}
+      if movie_
+          puts "#{movie_.movie_name}"
+      else
+        puts "No such movie exists"
+      end
+  end
+
+  def cast_member
+    puts 'Please enter the cast member:'
+    input =gets.strip
+
+    casting = Movies.all.select{|movie| movie.cast.include?(input)}
+    if casting
+      puts "#{casting.movie_name}"
+    else
+      puts "No such movie exist"
+    end
   end
 
 
