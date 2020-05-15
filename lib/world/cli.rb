@@ -6,43 +6,7 @@ class Cli
     input = ""
 
     while input!='exit'
-      puts "----------------------------------------------------------------------------"
-      puts "1. Welcome to our movie wolrd"
-      puts "----------------------------------------------------------------------------"
-
-      puts "2. To find the list of all the movies, enter 'list movies'"
-      puts "----------------------------------------------------------------------------"
-
-      puts "3. To list all of the director in your movie world, enter 'list director'."
-      puts "----------------------------------------------------------------------------"
-
-      puts "4. To list all of the producer in your library, enter 'list producer'."
-      puts "----------------------------------------------------------------------------"
-
-      puts "5. To list all of the writer in your library, enter 'list writer'."
-      puts "----------------------------------------------------------------------------"
-
-      puts "6. To list all of the movies of a director, enter 'list movies by director'."
-      puts "----------------------------------------------------------------------------"
-
-      puts "7. To list all of the movies of a producer, enter 'list movies by producer'."
-      puts "----------------------------------------------------------------------------"
-
-      puts "8. To list all of the movies of a writer, enter 'list movies by writer'."
-      puts "----------------------------------------------------------------------------"
-
-      puts "9. To list details of the movie, enter 'list movie details'."
-      puts "----------------------------------------------------------------------------"
-
-      puts "10. To find a movie by a given year, enter 'movie year'."
-      puts "----------------------------------------------------------------------------"
-
-      puts "11. To find a movie by a given cast member, enter 'cast member'."
-      puts "----------------------------------------------------------------------------"
-
-      puts "12. To quit, type 'exit'"
-      puts "----------------------------------------------------------------------------"
-
+      list_option
       input = gets.strip.downcase
 
       case input
@@ -69,6 +33,45 @@ class Cli
             end
       end
  end
+
+ def list_option
+   puts "----------------------------------------------------------------------------"
+   puts "1. Welcome to our movie wolrd"
+   puts "----------------------------------------------------------------------------"
+
+   puts "2. To find the list of all the movies, enter 'list movies'"
+   puts "----------------------------------------------------------------------------"
+
+   puts "3. To list all of the director in your movie world, enter 'list director'."
+   puts "----------------------------------------------------------------------------"
+
+   puts "4. To list all of the producer in your library, enter 'list producer'."
+   puts "----------------------------------------------------------------------------"
+
+   puts "5. To list all of the writer in your library, enter 'list writer'."
+   puts "----------------------------------------------------------------------------"
+
+   puts "6. To list all of the movies of a director, enter 'list movies by director'."
+   puts "----------------------------------------------------------------------------"
+
+   puts "7. To list all of the movies of a producer, enter 'list movies by producer'."
+   puts "----------------------------------------------------------------------------"
+
+   puts "8. To list all of the movies of a writer, enter 'list movies by writer'."
+   puts "----------------------------------------------------------------------------"
+
+   puts "9. To list details of the movie, enter 'list movie details'."
+   puts "----------------------------------------------------------------------------"
+
+   puts "10. To find a movie by a given year, enter 'movie year'."
+   puts "----------------------------------------------------------------------------"
+
+   puts "11. To find a movie by a given cast member, enter 'cast member'."
+   puts "----------------------------------------------------------------------------"
+
+   puts "12. To quit, type 'exit'"
+   puts "----------------------------------------------------------------------------"
+end
 
 
     def list_movies
