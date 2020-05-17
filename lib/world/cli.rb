@@ -13,7 +13,7 @@ class Cli
             when "list movies"
               list_movies
             when "list director"
-            list_director
+              list_director
             when "list producer"
               list_producer
             when "list writer"
@@ -36,7 +36,7 @@ class Cli
 
  def list_option
    puts "----------------------------------------------------------------------------"
-   puts "1. Welcome to our movie wolrd"
+   puts "1. Welcome to our movie world"
    puts "----------------------------------------------------------------------------"
 
    puts "2. To find the list of all the movies, enter 'list movies'"
@@ -98,7 +98,7 @@ end
       Writer.all.each_with_index do |item,index|
        puts " #{index+1} #{item.name}"
       end
-  end
+   end
 
   def list_movies_by_director
     puts 'Please enter the name of an director:'
@@ -159,18 +159,14 @@ end
     input =gets.strip
 
     casting = Movies.all.select{|movie| movie.cast.include?(input)}
-    if !casting.empty?
-      casting.each{|cast| puts "Movie Name is : #{cast.movie_name}"}
-    else
-      puts "No such movie exist"
-    end
+      if !casting.empty?
+        casting.each{|cast| puts "Movie Name is : #{cast.movie_name}"}
+      else
+        puts "No such movie exist"
+      end
   end
 
-
-
-
-
-    def movie_details
+  def movie_details
     puts 'Which movie details would you like to see?'
     input = gets.strip.to_i
       if(1..Movies.all.length).include?(input)
@@ -182,7 +178,5 @@ end
           puts "This movie list doesn't exist. Try another one!"
         end
       end
-    end
-
-
+  end
 end
