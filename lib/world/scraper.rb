@@ -44,8 +44,8 @@ def self.get_movie
 
     direct = Director.find_by_name(item)
       if direct
-          direct
-      else
+       direct
+     else
           direct = Director.new(item)
       end
 
