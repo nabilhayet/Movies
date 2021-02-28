@@ -1,59 +1,95 @@
-1.Project title
-The name of this project is Movie World. This project takes info from a movie website and
-displays the details of the selected movies.
+![GitHub Repo stars](https://img.shields.io/github/stars/nabilhayet/Restaurant) ![GitHub forks](https://img.shields.io/github/forks/nabilhayet/Restaurant) ![GitHub followers](https://img.shields.io/github/followers/nabilhayet) ![Bitbucket open issues](https://img.shields.io/bitbucket/issues/nabilhayet/Restaurant)                                          
+                                        <h1>:bomb: Movie World :bomb: </h1>
+                                                      
+This project takes info from a movie website and displays the details of the selected movies. This project was created to capture all the important data related to a website and show it to the user in the terminal. This will help the user to find any info by typing the name instead of looking at the big lists or searching throughout the entire project.
 
-2.Motivation
-This project was created to capture all the important data related to a website and
-show it to the user in the terminal. This will help the user to find any info by typing the name
-instead of looking at the big lists or searching throughout the entire project.
+<a href="https://www.youtube.com/watch?v=UWaRqHpO8fU&t=2s">Demo</a>
 
-3.Tech/framework used
-Built with
-  --Ruby
+Table of Contents
+- [Features](#features)
+- [Tech-Stack](#tech-stack)
+- [Installing](#installing)
+- [Challenges](#challenges)
+- [Future-Implementation](#future-implementation)
+- [Code-Snippet](#code-snippet)
+- [Tests](#tests)
+                               
+## Features
+<ul>
+  <li>Display lists of all the movies of a website.</li>
+  <li>Display lists of all the producers.</li>
+  <li>Display lists of all the directors.</li>
+  <li>Display lists of all the writers.</li>
+  <li>Display details of the movie for a particular director.</li>
+  <li>Display details of the movie for a particular producer.</li>
+  <li>Display details of the movie for a particular writer.</li>
+  <li>Display details of the movie by selecting a name.</li>
+  <li>Display the name of the movie for a particular year.</li>
+  <li>Display the name of the movie for a particular cast member.</li>
+</ul>
 
-4. Features
--- Display lists of all the movies of a website.
--- Display lists of all the producers.
--- Display lists of all the directors.
--- Display lists of all the writers.
--- Display details of the movie for a particular director.
--- Display details of the movie for a particular producer.
--- Display details of the movie for a particular writer.
--- Display details of the movie by selecting a name.
--- Display the name of the movie for a particular year.
--- Display the name of the movie for a particular cast member.
+## Signup 
 
-5. Code Example
-  For this project, open uri && nokogiri library were used.
-
-  Code Snippet
-  html = open("https://www.afi.com/afis-100-years-100-movies/")
-  doc = Nokogiri::HTML(html)
-  post= doc.css("div .movie_popup")
-
-  Open uri takes a link of a site and opens it by storing the url in a variable.
-  nokogiri takes the varaible and turns it into a html file. The file can be accessed
-  by using a css command providing a attribute name.
-
-6. Installation
--- git clone https://github.com/nabilhayet/Movies.git
+![dem](https://user-images.githubusercontent.com/33500404/109376302-97f5ee00-7891-11eb-89aa-6fdfd054c8c9.gif)
 
 
-7. Reference
--- http://ruby.bastardsbook.com/chapters/html-parsing/
+## Tech-Stack
+<p>This web app makes use of the following:</p>
 
-8. Tests
--- Type 'ruby ./bin/movies'
--- To find the list of all the movies, enter 'list movies'"
---To list all of the director in your movie world, enter 'list director'."
---To list all of the producer in your library, enter 'list producer'."
---To list all of the writer in your library, enter 'list writer'."
---To list all of the movies of a director, enter 'list movies by director'."
---To list all of the movies of a producer, enter 'list movies by producer'."
---To list all of the movies of a writer, enter 'list movies by writer'."
---To list details of the movie, enter 'list movie details'."
---To find a movie by a given year, enter 'movie year'."
---To find a movie by a given cast member, enter 'cast member'."
+* ruby '2.6.1'
+* 'rails', '~> 6.0.3', '>= 6.0.3.2'
+* 'sqlite3', '~> 1.4'
+* 'puma', '~> 4.1'
+* 'webpacker', '~> 4.0'
+* 'bcrypt', '~> 3.1.7'
+* 'omniauth-facebook'
+* 'thin'
+* 'omniauth'
 
-9. Credits
--- https://github.com/nabilhayet/ruby-music-library-cli-onl01-seng-pt-032320
+## Installing
+<ul>
+   <li> Clone this repo to your local machine git clone <this-repo-url></li>
+   <li> run 'ruby ./bin/movies' to run the application</li>
+</ul>
+        
+## Challenges
+<ul>
+  <li> Signing up via third party for the user was not working in the beginning with github.So i switched from github to facebook for omni-auth.</li>
+  <li> Making sure to prevent a user from accessing other user's info took some time.</li>
+  <li> Following restful routes pattern for nested routes was not easy.</li>
+  <li> Create a connection between restaurant and food felt like a mountain to climb.</li>
+</ul>
+
+## Future-Implementation
+<ul>
+  <li> Adding nested form to make our app more efficient</li>
+  <li> Redesign database to make tables more standard</li>
+  <li> Insert images while adding new food</li>
+</ul>
+
+## Code-Snippet 
+
+```
+html = open("https://www.afi.com/afis-100-years-100-movies/")
+ doc = Nokogiri::HTML(html)
+ post= doc.css("div .movie_popup")
+```
+
+```
+Open uri takes a link of a site and opens it by storing the url in a variable. Nokogiri takes the varaible and turns it into a html file. The file can be accessed
+by using a css command providing a attribute name.
+```
+
+## Tests
+* To find the list of all the movies, enter 'list movies'"
+* To list all of the director in your movie world, enter 'list director'."
+* To list all of the producer in your library, enter 'list producer'."
+* To list all of the writer in your library, enter 'list writer'."
+* To list all of the movies of a director, enter 'list movies by director'."
+* To list all of the movies of a producer, enter 'list movies by producer'."
+* To list all of the movies of a writer, enter 'list movies by writer'."
+* To list details of the movie, enter 'list movie details'."
+* To find a movie by a given year, enter 'movie year'."
+* To find a movie by a given cast member, enter 'cast member'."
+
+
