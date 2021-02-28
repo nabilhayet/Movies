@@ -67,8 +67,32 @@ html = open("https://www.afi.com/afis-100-years-100-movies/")
 ```
 
 ```
-Open uri takes a link of a site and opens it by storing the url in a variable. Nokogiri takes the varaible and turns it into a html file. The file can be accessed
-by using a css command providing a attribute name.
+write = Writer.find_by_name(writer[index])	
+ if write
+  write
+ else
+	write= Writer.new(writer[index])
+ end
+```
+
+```
+def list_movies	
+ puts   " |Movie_Name| "
+ Movies.all.each_with_index do |item,index|
+ puts "#{index+1} |#{item.movie_name}|"
+ end
+end
+```
+
+```
+def add_movie(movie)	
+ movie.writer = self unless movie.writer
+ movies << movie unless movies.include?(movie)
+end
+```
+
+```
+
 ```
 ## Tests
 * To find the list of all the movies, enter 'list movies'"
