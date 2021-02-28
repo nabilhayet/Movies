@@ -71,7 +71,7 @@ write = Writer.find_by_name(writer[index])
  if write
   write
  else
-	write= Writer.new(writer[index])
+  write= Writer.new(writer[index])
  end
 ```
 
@@ -91,9 +91,6 @@ def add_movie(movie)
 end
 ```
 
-```
-
-```
 ## Tests
 * To find the list of all the movies, enter 'list movies'"
 * To list all of the director in your movie world, enter 'list director'."
