@@ -36,15 +36,8 @@ Table of Contents
 ## Tech-Stack
 <p>This web app makes use of the following:</p>
 
-* ruby '2.6.1'
-* 'rails', '~> 6.0.3', '>= 6.0.3.2'
-* 'sqlite3', '~> 1.4'
-* 'puma', '~> 4.1'
-* 'webpacker', '~> 4.0'
-* 'bcrypt', '~> 3.1.7'
-* 'omniauth-facebook'
-* 'thin'
-* 'omniauth'
+* pry
+* nokogiri 
 
 ## Installing
 <ul>
@@ -54,17 +47,15 @@ Table of Contents
         
 ## Challenges
 <ul>
-  <li> Signing up via third party for the user was not working in the beginning with github.So i switched from github to facebook for omni-auth.</li>
-  <li> Making sure to prevent a user from accessing other user's info took some time.</li>
-  <li> Following restful routes pattern for nested routes was not easy.</li>
-  <li> Create a connection between restaurant and food felt like a mountain to climb.</li>
+  <li> Scrapping was the most difficult task of this project</li>
+  <li> After fething data from the website, filtering out perticular info was also challenging</li>
+  <li> Loading so much data took a lot of time to run the application</li>
 </ul>
 
 ## Future-Implementation
 <ul>
-  <li> Adding nested form to make our app more efficient</li>
-  <li> Redesign database to make tables more standard</li>
-  <li> Insert images while adding new food</li>
+  <li> Add more classes like Editor</li>
+  <li> Remove duplicacy of code</li>
 </ul>
 
 ## Code-Snippet 
@@ -79,7 +70,6 @@ html = open("https://www.afi.com/afis-100-years-100-movies/")
 Open uri takes a link of a site and opens it by storing the url in a variable. Nokogiri takes the varaible and turns it into a html file. The file can be accessed
 by using a css command providing a attribute name.
 ```
-
 ## Tests
 * To find the list of all the movies, enter 'list movies'"
 * To list all of the director in your movie world, enter 'list director'."
