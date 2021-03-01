@@ -93,9 +93,9 @@ end
 
 ## Tests
 * To find the list of all the movies, enter 'list movies'"
-* To list all of the director in your movie world, enter 'list director'."
-* To list all of the producer in your library, enter 'list producer'."
-* To list all of the writer in your library, enter 'list writer'."
+* To list all of the directors in your movie world, enter 'list director'."
+* To list all of the producers in your library, enter 'list producer'."
+* To list all of the writers in your library, enter 'list writer'."
 * To list all of the movies of a director, enter 'list movies by director'."
 * To list all of the movies of a producer, enter 'list movies by producer'."
 * To list all of the movies of a writer, enter 'list movies by writer'."
