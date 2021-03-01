@@ -28,10 +28,17 @@ Table of Contents
   <li>Display the name of the movie for a particular cast member.</li>
 </ul>
 
-## Signup 
+## List Movies 
+![list_movies](https://user-images.githubusercontent.com/33500404/109447467-bbe03d80-7a11-11eb-9867-4d36be7f4db0.gif)
 
-![dem](https://user-images.githubusercontent.com/33500404/109376302-97f5ee00-7891-11eb-89aa-6fdfd054c8c9.gif)
+## List Director 
+![director](https://user-images.githubusercontent.com/33500404/109447574-fb0e8e80-7a11-11eb-8008-1ef4fa23dd40.gif)
 
+## Find Movie by year
+![movie_year](https://user-images.githubusercontent.com/33500404/109447783-783a0380-7a12-11eb-903b-56c49b9333bc.gif)
+
+## Movie Details 
+![movie_details](https://user-images.githubusercontent.com/33500404/109447530-e4683780-7a11-11eb-9609-65911c6a4415.gif)
 
 ## Tech-Stack
 <p>This web app makes use of the following:</p>
